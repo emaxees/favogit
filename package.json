@@ -2,8 +2,11 @@
   "name": "FavoGit",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "start-heroku": "tsc && concurrently \"npm run tsc:w\" \"npm run http-server\" ",
     "lite": "lite-server",
+    "http-server": "http-server",
+    "lint": "tslint \"app/**/*.ts\"",
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
@@ -35,5 +38,8 @@
     "lite-server": "^2.2.2",
     "typescript": "^2.0.3",
     "typings": "^1.4.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.9.0"
   }
 }
