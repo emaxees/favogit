@@ -1,0 +1,101 @@
+<div id="mySidenav" class="sidenav">
+    <img class="logo" src="./img/logo_blanco.png" alt="">
+    <div class="search-panel">
+        <input type="text" class="search-in-panel" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup)="search()">
+    </div>
+    <div class="button-panel">
+        <button type="button" class="filters" name="button" (click)="orderAZ()">A-Z</button>
+        <button type="button" class="filters" name="button" (click)="orderZA()">Z-A</button>
+    </div>
+
+    <div class="favorites-box">
+        <span>Favorites Profiles <img src="./img/corazon.png" alt="heart"></span>
+
+        <img class="cat" src="./img/gatito_triste.png" alt="" *ngIf="!favorites.length>0">
+        <p *ngIf="!favorites.length>0">Why so lonely?</p>
+        <p *ngIf="!favorites.length>0">Add somehone to your favorites!</p>
+
+        <ul class="favorite-list">
+
+            <li *ngFor='let user of favorites'>
+                <img class="avatar" src="{{user.avatarUrl}}"><span>{{user.name}}</span><img class="star" src="./img/favorito2.png">
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<div id="home">
+    <div class="search-box" *ngIf="!users.length>0">
+        <img *ngIf="!loading" src="img/logo.png" alt="logo">
+        <input *ngIf="!loading" type="text" class="search" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup)="search()">
+        <p *ngIf="!loading">Start your search!</p>
+    </div>
+    <img src="./img/spiner.svg" class="spiner" alt="spiner" *ngIf="loading">
+
+    <div class="panel-right">
+        <div *ngIf="users.length>0 && !loading">
+            <div *ngFor='let user of users'>
+                <div class="panel-user">
+                    <div class="left">
+                        <img class="img-thumbnail github-avatar" src="{{user.avatarUrl}}">
+                        <p>Followers</p>
+                        <p class="follow">{{user.followers}}</p>
+                        <p>Following</p>
+                        <p class="following">{{user.following}}</p>
+
+                    </div>
+
+                    <div class="right">
+                        <button class="star" (click)="addFavorites(user.login)"></button>
+                        <h1>{{user.login}}</h1>
+                        <p>{{user.name}}</p>
+                        <p>{{user.date}}</p>
+                        <button class="btn-ok" type="button" name="button" (click)="modal.open();open(user.login)">View More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<modal #modal>
+    <div class="moda-content" *ngIf="user && repos">
+        <div class="left">
+            <div class="head">
+                <img class="img-thumbnail github-avatar" src="{{user.avatarUrl}}">
+                <h1>{{user.login}}</h1>
+            </div>
+            <div class="body">
+                <p>{{user.name}}</p>
+                <p>{{user.location}}</p>
+                <p>{{user.date | date}}</p>
+                <a href="mailto:{{user.email}}">{{user.email}}</a>
+            </div>
+            <div class="footer">
+                <div class="left">
+                    <p>Followers</p>
+                    <p class="follow">{{user.followers}}</p>
+                </div>
+                <div class="rigt">
+                    <p>Following</p>
+                    <p class="following">{{user.following}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="right">
+            <button type="button" class="close" name="button"(click)="modal.close()"></button>
+            <h1>Repos History</h1>
+            <div class="time-line">
+                <ul>
+                    <li *ngFor="let repo of repos">
+                        {{repo.name}} {{repo.description}} Watchers{{repo.watchers}} fork {{repo.forks}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</modal>

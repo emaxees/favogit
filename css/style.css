@@ -1,0 +1,295 @@
+@import url("../fonts/fonts.css");
+html {
+  width: 100%;
+  height: 100%; }
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+  background-color: #f2f2f2;
+  background-image: url("../img/ciudad.png");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: 1085px; }
+
+#home {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  top: 50%; }
+  #home img.spiner {
+    background: #000;
+    border-radius: 100%;
+    margin: 0 auto;
+    height: 100px; }
+  #home .panel-right {
+    position: fixed;
+    left: 265px;
+    width: 100%;
+    overflow-y: scroll;
+    top: 0;
+    max-height: 90%;
+    overflow-y: scroll;
+    overflow-x: hidden; }
+    #home .panel-right .panel-user {
+      width: 320px;
+      height: 190px;
+      background-color: #fff;
+      margin: 20px;
+      display: inline-block;
+      float: left;
+      padding: 10px;
+      box-shadow: 4px 4px 4px 4px rgba(8, 8, 8, 0.03);
+      border-radius: 15px; }
+      #home .panel-right .panel-user .left {
+        display: block;
+        float: left; }
+        #home .panel-right .panel-user .left p {
+          text-align: center;
+          color: #999999;
+          margin-bottom: 0;
+          font-family: "latolight"; }
+        #home .panel-right .panel-user .left p.follow {
+          color: #4fafef;
+          font-family: "latobold"; }
+        #home .panel-right .panel-user .left p.following {
+          color: #ffb3a4;
+          font-family: "latobold"; }
+        #home .panel-right .panel-user .left img {
+          border-radius: 100%;
+          width: 80px;
+          height: 80px; }
+      #home .panel-right .panel-user .right {
+        display: block;
+        float: right; }
+        #home .panel-right .panel-user .right h1 {
+          padding: 20px;
+          font-size: 16px;
+          color: #999999;
+          font-family: "latobold"; }
+        #home .panel-right .panel-user .right button.star {
+          border-radius: 100%;
+          width: 28px;
+          height: 28px;
+          background: url("../img/favorito_ficha.png") no-repeat -24px 4px;
+          border: none;
+          float: right; }
+        #home .panel-right .panel-user .right button.star:hover {
+          background-position: 2px 4px; }
+        #home .panel-right .panel-user .right p {
+          margin: 0 0 10px;
+          font-size: 14px;
+          color: #999999;
+          line-height: 0.85;
+          font-family: "latolight"; }
+        #home .panel-right .panel-user .right button.btn-ok {
+          width: 114px;
+          height: 34px;
+          border: none;
+          background-color: #1bbc6b;
+          font-family: "latolight";
+          color: white;
+          border-radius: 8px; }
+        #home .panel-right .panel-user .right button.btn-ok:hover {
+          background-color: #0f8449; }
+  #home .search-box {
+    width: 678px;
+    height: 50px;
+    margin-left: -50%;
+    margin-top: -50%; }
+    #home .search-box img {
+      padding: 20px 20px 90px;
+      display: block;
+      margin-left: 25%; }
+    #home .search-box p {
+      font-size: 18px;
+      color: #999999;
+      text-align: center;
+      padding: 40px 20px 20px;
+      font-family: "latolight"; }
+    #home .search-box input.search {
+      background-color: #fcfcfc;
+      color: #000000;
+      height: 50px;
+      padding: 20px;
+      border: 0.5px solid #cccccc;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 21px;
+      font-family: "latolight";
+      color: #b3b3b3;
+      background-image: url("../img/lupa.png");
+      background-repeat: no-repeat;
+      background-position: 625px 10px; }
+    #home .search-box input.search:focus {
+      outline: none !important;
+      border: 1px solid #999999;
+      box-shadow: 4px 4px 4px 4px rgba(8, 8, 8, 0.03); }
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+  background: #4fafef;
+  background: -moz-linear-gradient(top, #4fafef 0%, #ffb3a4 100%);
+  background: -webkit-linear-gradient(top, #4fafef 0%, #ffb3a4 100%);
+  background: linear-gradient(to bottom, #4fafef 0%, #ffb3a4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#4fafef', endColorstr='#ffb3a4',GradientType=0 );
+  opacity: 0.8;
+  display: block;
+  clear: both; }
+  .sidenav img.logo {
+    padding: 0 45px; }
+  .sidenav .search-panel {
+    padding: 40px 20px 20px; }
+    .sidenav .search-panel input.search-in-panel {
+      width: 100%;
+      margin-left: px;
+      background-color: #a7d0ef;
+      border: 1px solid #fff;
+      height: 30px;
+      border-radius: 8px;
+      padding: 10px;
+      color: #fff; }
+    .sidenav .search-panel input.search-in-panel::-webkit-input-placeholder {
+      color: #fff; }
+  .sidenav .button-panel {
+    padding-left: 51px; }
+    .sidenav .button-panel button.filters {
+      -webkit-border-radius: 90px;
+      -moz-border-radius: 90px;
+      border-radius: 100%;
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      color: #4fafef;
+      opacity: 90%;
+      border: none;
+      margin: 15px -104px 46px -39px;
+      position: relative;
+      left: 68%;
+      font-family: "latobold"; }
+
+.favorites-box {
+  padding: 80px 20px 20px; }
+  .favorites-box > img {
+    display: block;
+    padding: 80px 20px 20px;
+    margin: 0 auto; }
+  .favorites-box p {
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 0.5;
+    font-style: "latolight"; }
+  .favorites-box span {
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    font-family: "latolight"; }
+    .favorites-box span > img {
+      display: inline-block; }
+  .favorites-box ul.favorite-list {
+    font-size: 16px;
+    color: #999999;
+    margin-top: 20px;
+    padding-left: 0;
+    overflow-y: hidden;
+    max-height: 300px; }
+    .favorites-box ul.favorite-list li {
+      width: 100%;
+      height: 40px;
+      background-color: #fff;
+      list-style-type: none;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 7px;
+      padding: 5px;
+      box-shadow: 4px 4px 4px 4px rgba(8, 8, 8, 0.03); }
+      .favorites-box ul.favorite-list li img.avatar {
+        float: left;
+        border-radius: 100%;
+        width: 32px;
+        height: 32px; }
+      .favorites-box ul.favorite-list li img.star {
+        float: right;
+        padding: 5px; }
+      .favorites-box ul.favorite-list li span {
+        font-size: 14px;
+        color: #999999;
+        padding: 5px; }
+
+#main {
+  transition: margin-left 0.5s;
+  padding: 20px; }
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px; }
+  .sidenav a {
+    font-size: 18px; } }
+
+.modal-content {
+  display: block;
+  position: absolute;
+  width: 850px; }
+  .modal-content .left {
+    width: 30%;
+    display: inline-block;
+    float: left;
+    padding: 30px;
+    background-color: #fff7f6;
+    max-height: 600px; }
+    .modal-content .left .head img {
+      border-radius: 100%;
+      width: 200px;
+      border: none; }
+    .modal-content .left .body p {
+      text-align: center;
+      color: #999999;
+      margin-bottom: 0;
+      font-family: "latolight";
+      font-size: 14px; }
+    .modal-content .left .footer {
+      display: block; }
+      .modal-content .left .footer .left {
+        display: inline-block;
+        float: left; }
+        .modal-content .left .footer .left p.follow {
+          color: #4fafef;
+          font-family: "latobold"; }
+      .modal-content .left .footer .right {
+        display: inline-block;
+        float: right; }
+        .modal-content .left .footer .right p.following {
+          color: #ffb3a4;
+          font-family: "latobold"; }
+  .modal-content .right {
+    width: 70%;
+    display: inline-block;
+    float: right;
+    padding: 30px;
+    max-height: 600px; }
+    .modal-content .right ul {
+      font-size: 16px;
+      color: #999999;
+      margin-top: 20px;
+      padding-left: 0;
+      overflow-y: hidden;
+      max-height: 300px; }
+    .modal-content .right button.close {
+      border-radius: 100%;
+      width: 28px;
+      height: 28px;
+      background: url("../img/cerrar_ventana.png") no-repeat -24px 4px;
+      border: none;
+      float: right; }
