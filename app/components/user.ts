@@ -8,4 +8,5 @@ export class User {
     followers: string;
     date: string;
     avatarUrl: string;
+    favorite:boolean;
 }

@@ -51,7 +51,8 @@ export class GithubComponent {
                         date: response.created_at,
                         avatarUrl: response.avatar_url,
                         location: response.location,
-                        email: response.email
+                        email: response.email,
+                        favorite:false
                     }
                     this.users.push(user);
 
@@ -92,6 +93,12 @@ export class GithubComponent {
     }
 
     addFavorites(user) {
+
+        for(var i in this.users){
+          if(user == this.user[i].login){
+            this.user[i].favorite=true;
+          }
+        }
         this._githubService.updateUsername(user);
         this._githubService.getUser().subscribe(response => {
 
@@ -104,7 +111,8 @@ export class GithubComponent {
                 avatarUrl: response.avatar_url,
                 login: response.login,
                 location: response.location,
-                email: response.email
+                email: response.email,
+                favorite:true
             };
             this.favorites.push(user);
 

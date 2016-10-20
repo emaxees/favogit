@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="right">
-                        <button class="star" (click)="addFavorites(user.login)"></button>
+                        <button class="star" (click)="addFavorites(user.login)" [ngClass]="'button:hover':user.favorite"></button>
                         <h1>{{user.login}}</h1>
                         <p>{{user.name}}</p>
                         <p>{{user.date}}</p>
