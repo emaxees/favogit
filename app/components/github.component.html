@@ -15,7 +15,7 @@
         <p *ngIf="!favorites.length>0">Why so lonely?</p>
         <p *ngIf="!favorites.length>0">Add somehone to your favorites!</p>
 
-        <ul class="favorite-list">
+        <ul class="favorite-list optiscroll" id="favorite-scroll">
 
             <li *ngFor='let user of favorites'>
                 <img class="avatar" src="{{user.avatarUrl}}"><span>{{user.name}}</span><img class="star" src="./img/favorito2.png">

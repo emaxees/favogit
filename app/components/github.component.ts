@@ -22,7 +22,6 @@ export class GithubComponent {
     constructor(private _githubService: GithubService) {
         console.log('Github Component Init...');
         this.loading = false;
-
     }
 
     search() {
@@ -30,6 +29,7 @@ export class GithubComponent {
         var users = [];
 
         document.getElementById("mySidenav").style.width = "255px";
+        $('#favorite-scroll').optiscroll();
 
         this._githubService.updateUsername(this.username);
         this.loading = true;
@@ -80,10 +80,10 @@ export class GithubComponent {
 
     orderZA() {
         this.users.sort(function(a, b) {
-            if (a.name > b.name) {
+            if (a.followers > b.followers) {
                 return -1;
             }
-            if (a.name < b.name) {
+            if (a.followers < b.followers) {
                 return 1;
             }
 
@@ -129,7 +129,7 @@ export class GithubComponent {
 
             });
         } else {
-            alert("Ya hay bldo!")
+            alert(user+" is already in your favorite list!");
         }
 
     }
