@@ -4,6 +4,8 @@ import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import {GithubService} from '../services/github.service';
 import {User} from './user';
 
+declare var jQuery: any
+
 @Component({
     selector: 'github',
     templateUrl: './app/components/github.component.html',
@@ -29,7 +31,7 @@ export class GithubComponent {
         var users = [];
 
         document.getElementById("mySidenav").style.width = "255px";
-        $('#favorite-scroll').optiscroll();
+        jQuery('#favorite-scroll').optiscroll();
 
         this._githubService.updateUsername(this.username);
         this.loading = true;
