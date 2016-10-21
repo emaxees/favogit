@@ -267,45 +267,161 @@ body {
     display: inline-block;
     float: left;
     padding: 30px;
-    background-color: #fff7f6;
+    background-color: #f7f7f7;
     max-height: 600px; }
+    .modal-content .left .head h1.user {
+      font-size: 28px;
+      font-family: "latoregular";
+      color: #999999;
+      text-align: center; }
     .modal-content .left .head img {
       border-radius: 100%;
       width: 200px;
       border: none; }
-    .modal-content .left .body p {
+    .modal-content .left .head button.star {
+      border-radius: 100%;
+      width: 28px;
+      height: 28px;
+      background: url("../img/favorito_ficha.png") no-repeat -24px 4px;
+      border: none;
+      padding: 1px;
+      margin-left: 5px; }
+    .modal-content .left .head button.star:hover {
+      background-position: 2px 4px; }
+    .modal-content .left .body {
+      padding: 20px; }
+      .modal-content .left .body p {
+        text-align: center;
+        color: #999999;
+        margin-bottom: 0;
+        font-family: "latolight";
+        font-size: 18px; }
+      .modal-content .left .body p.location {
+        font-size: 16px;
+        font-family: "latoregular";
+        text-align: center; }
+      .modal-content .left .body p.date {
+        font-size: 14px;
+        font-family: "latolight";
+        text-align: center; }
+      .modal-content .left .body a {
+        text-align: center;
+        padding: 20px;
+        display: block;
+        text-decoration: underline;
+        font-family: "latoregular";
+        font-size: 14px;
+        color: #999999; }
+    .modal-content .left .follow-left {
+      display: inline-block;
+      float: left;
       text-align: center;
-      color: #999999;
-      margin-bottom: 0;
       font-family: "latolight";
-      font-size: 14px; }
-    .modal-content .left .footer {
-      display: block; }
-      .modal-content .left .footer .left {
-        display: inline-block;
-        float: left; }
-        .modal-content .left .footer .left p.follow {
-          color: #4fafef;
-          font-family: "latobold"; }
-      .modal-content .left .footer .right {
-        display: inline-block;
-        float: right; }
-        .modal-content .left .footer .right p.following {
-          color: #ffb3a4;
-          font-family: "latobold"; }
+      font-size: 16px;
+      line-height: 0.9;
+      color: #999999; }
+      .modal-content .left .follow-left p.follow {
+        color: #4fafef;
+        font-family: "latobold";
+        font-size: 20px; }
+    .modal-content .left .following-right {
+      display: inline-block;
+      float: right;
+      text-align: center;
+      font-family: "latolight";
+      font-size: 16px;
+      line-height: 0.9;
+      color: #999999; }
+      .modal-content .left .following-right p.following {
+        color: #ffb3a4;
+        font-family: "latobold";
+        font-size: 20px; }
   .modal-content .right {
     width: 70%;
     display: inline-block;
     float: right;
     padding: 30px;
     max-height: 600px; }
-    .modal-content .right ul {
-      font-size: 16px;
-      color: #999999;
-      margin-top: 20px;
-      padding-left: 0;
-      overflow-y: hidden;
-      max-height: 300px; }
+    .modal-content .right button.btn-ok {
+      position: absolute;
+      bottom: 41px;
+      left: 78%;
+      width: 20%; }
+    .modal-content .right h1 {
+      font-size: 21px;
+      font-family: "latolight"; }
+    .modal-content .right .time-line {
+      background: #4fafef;
+      background: -moz-linear-gradient(top, #4fafef 0%, #ffb3a4 100%);
+      background: -webkit-linear-gradient(top, #4fafef 0%, #ffb3a4 100%);
+      background: linear-gradient(to bottom, #4fafef 0%, #ffb3a4 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#4fafef', endColorstr='#ffb3a4',GradientType=0 ); }
+      .modal-content .right .time-line ul {
+        font-size: 16px;
+        color: #999999;
+        margin-top: 20px;
+        padding-left: 0;
+        max-height: 300px;
+        display: block;
+        position: relative;
+        left: 2px;
+        background-color: #fff; }
+        .modal-content .right .time-line ul li {
+          width: 100%;
+          height: 40px;
+          background-color: #e6e6e6;
+          list-style-type: none;
+          margin: 10px 0;
+          padding: 10px;
+          border-radius: 7px;
+          padding: 5px;
+          box-shadow: 4px 4px 4px 4px rgba(8, 8, 8, 0.03);
+          padding-right: 20px;
+          padding-left: 20px;
+          margin-left: 11px; }
+          .modal-content .right .time-line ul li span {
+            display: inline-block;
+            padding-top: 5px; }
+          .modal-content .right .time-line ul li span.name {
+            font-family: "latobold";
+            font-size: 14px; }
+          .modal-content .right .time-line ul li span.description {
+            font-family: "latolight";
+            font-size: 14px;
+            max-width: 200px;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: 15px;
+            position: relative;
+            top: 3px; }
+          .modal-content .right .time-line ul li span.fork {
+            font-family: "latoregular";
+            font-size: 14px;
+            padding-left: 17px;
+            float: right; }
+            .modal-content .right .time-line ul li span.fork a.link {
+              font-family: "latolight";
+              font-size: 12px;
+              float: right;
+              padding-left: 50px;
+              text-decoration: none;
+              color: #999999; }
+              .modal-content .right .time-line ul li span.fork a.link img {
+                padding-left: 5px;
+                cursor: pointer; }
+        .modal-content .right .time-line ul li::after {
+          content: '';
+          width: 15px;
+          height: 15px;
+          position: relative;
+          background-color: #4fafef;
+          border-radius: 100%;
+          border: 2px solid white;
+          top: -20px;
+          left: -39px;
+          display: block; }
     .modal-content .right button.close {
       border-radius: 100%;
       width: 28px;

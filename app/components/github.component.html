@@ -67,36 +67,42 @@
         <div class="left">
             <div class="head">
                 <img class="img-thumbnail github-avatar" src="{{user.avatarUrl}}">
-                <h1>{{user.login}}</h1>
+                <h1 class="user">{{user.login}}<button class="star" (click)="addFavorites(user.login)"></button></h1>
             </div>
             <div class="body">
                 <p>{{user.name}}</p>
-                <p>{{user.location}}</p>
-                <p>{{user.date | date}}</p>
+                <p class="location">{{user.location}}</p>
+                <p class="date">{{user.date | date}}</p>
                 <a href="mailto:{{user.email}}">{{user.email}}</a>
             </div>
-            <div class="footer">
-                <div class="left">
-                    <p>Followers</p>
-                    <p class="follow">{{user.followers}}</p>
-                </div>
-                <div class="rigt">
-                    <p>Following</p>
-                    <p class="following">{{user.following}}</p>
-                </div>
+
+            <div class="follow-left">
+                <p>Followers</p>
+                <p class="follow">{{user.followers}}</p>
             </div>
+            <div class="following-right">
+                <p>Following</p>
+                <p class="following">{{user.following}}</p>
+            </div>
+
 
         </div>
         <div class="right">
             <button type="button" class="close" name="button" (click)="modal.close()"></button>
-            <h1>Repos History</h1>
+            <h1>Top Five Repos</h1>
             <div class="time-line">
                 <ul>
                     <li *ngFor="let repo of repos">
-                        {{repo.name}} {{repo.description}} Watchers{{repo.watchers}} fork {{repo.forks}}
+                        <i></i>
+                        <span class="name">{{repo.name}}</span>
+                        <span class="description">{{repo.description}}</span>
+                        <span class="fork"><img src="./img/fork.png" alt="fork">{{repo.forks}}
+                        <a class="link" href="{{repo.html_url}}">Go to<img src="./img/link.png" alt="fork"></a></span>
+
                     </li>
                 </ul>
             </div>
+            <button class="btn-ok" type="button" name="button" (click)="openProfile(user.login)">Go to Github Profile</button>
         </div>
     </div>
 </modal>
