@@ -70,14 +70,22 @@ body {
           font-size: 16px;
           color: #999999;
           font-family: "latobold"; }
-        #home .panel-right .panel-user .right button.star {
+        #home .panel-right .panel-user .right button.staroff {
           border-radius: 100%;
           width: 28px;
           height: 28px;
           background: url("../img/favorito_ficha.png") no-repeat -24px 4px;
           border: none;
           float: right; }
-        #home .panel-right .panel-user .right button.star:hover {
+        #home .panel-right .panel-user .right button.staron {
+          border-radius: 100%;
+          width: 28px;
+          height: 28px;
+          background: url("../img/favorito_ficha.png") no-repeat -24px 4px;
+          border: none;
+          float: right;
+          background-position: 2px 4px; }
+        #home .panel-right .panel-user .right button.staroff:hover {
           background-position: 2px 4px; }
         #home .panel-right .panel-user .right p {
           margin: 0 0 10px;
