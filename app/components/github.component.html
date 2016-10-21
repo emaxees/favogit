@@ -35,7 +35,7 @@
     <img src="./img/spiner.svg" class="spiner" alt="spiner" *ngIf="loading">
 
     <div class="panel-right">
-        <div *ngIf="users.length>0 && !loading" class="wrapper-cards">
+        <div *ngIf="users.length>0 && !loading" class="container">
             <div *ngFor='let user of users'>
                 <div class="panel-user">
                     <div class="left">
