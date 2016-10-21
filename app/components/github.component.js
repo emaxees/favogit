@@ -1,54 +1,38 @@
-import { Component, ViewChild } from '@angular/core';
-import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
-
-import {GithubService} from '../services/github.service';
-import {User} from './user';
-
-declare var jQuery: any
-
-@Component({
-    selector: 'github',
-    templateUrl: './app/components/github.component.html',
-    providers: [GithubService]
-})
-export class GithubComponent {
-
-    loading: boolean;
-    repos: any;
-    username: string;
-    users: User[] = [];
-    user: User;
-    favorites: User[] = [];
-    delete: boolean;
-
-
-    constructor(private _githubService: GithubService) {
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require("@angular/core");
+var ng2_bs3_modal_1 = require("ng2-bs3-modal/ng2-bs3-modal");
+var github_service_1 = require("../services/github.service");
+var GithubComponent = (function () {
+    function GithubComponent(_githubService) {
+        this._githubService = _githubService;
+        this.users = [];
+        this.favorites = [];
         console.log('Github Component Init...');
         this.loading = false;
         this.delete = false;
     }
-
-
-
-    search() {
-
+    GithubComponent.prototype.search = function () {
+        var _this = this;
         var users = [];
         this.users = [];
-
         document.getElementById("mySidenav").style.width = "255px";
         jQuery('#favorite-scroll').optiscroll();
-
         this._githubService.updateUsername(this.username);
         this.loading = true;
-        this._githubService.getSearch().subscribe(response => {
-
+        this._githubService.getSearch().subscribe(function (response) {
             users = response.items.slice(0, 20);
-
             for (var i in users) {
-                this._githubService.updateUsername(users[i].login);
-
-                this._githubService.getUser().subscribe(response => {
-
+                _this._githubService.updateUsername(users[i].login);
+                _this._githubService.getUser().subscribe(function (response) {
                     var user = {
                         id: response.id,
                         name: response.name,
@@ -60,66 +44,52 @@ export class GithubComponent {
                         location: response.location,
                         email: response.email,
                         favorite: false
-                    }
-                    this.users.push(user);
-
+                    };
+                    _this.users.push(user);
                 });
-
             }
-            this.loading = false;
-
+            _this.loading = false;
         });
-
-    }
-
-    orderAZ() {
-        this.users.sort(function(a, b) {
+    };
+    GithubComponent.prototype.orderAZ = function () {
+        this.users.sort(function (a, b) {
             if (a.followers > b.followers) {
                 return 1;
             }
             if (a.followers < b.followers) {
                 return -1;
             }
-
             return 0;
         });
-    }
-
-    orderZA() {
-        this.users.sort(function(a, b) {
+    };
+    GithubComponent.prototype.orderZA = function () {
+        this.users.sort(function (a, b) {
             if (a.followers > b.followers) {
                 return -1;
             }
             if (a.followers < b.followers) {
                 return 1;
             }
-
             return 0;
         });
-
-    }
-
-    addFavorites(user) {
-        var flag: boolean;
-
+    };
+    GithubComponent.prototype.addFavorites = function (user) {
+        var _this = this;
+        var flag;
         flag = true;
         for (var i in this.favorites) {
             if (user == this.favorites[i].login) {
                 flag = false;
             }
-
         }
-
         if (flag) {
             for (var i in this.users) {
                 if (user == this.users[i].login) {
                     this.users[i].favorite = true;
                 }
             }
-
             this._githubService.updateUsername(user);
-            this._githubService.getUser().subscribe(response => {
-
+            this._githubService.getUser().subscribe(function (response) {
                 var user = {
                     id: response.id,
                     name: response.name,
@@ -132,21 +102,17 @@ export class GithubComponent {
                     email: response.email,
                     favorite: true
                 };
-                this.favorites.push(user);
-
+                _this.favorites.push(user);
             });
-        } else {
+        }
+        else {
             alert(user + " is already in your favorite list!");
         }
-
-    }
-
-    deleteFavorites() {
-
+    };
+    GithubComponent.prototype.deleteFavorites = function () {
         this.delete = true;
-
-    }
-    deleteItem(user) {
+    };
+    GithubComponent.prototype.deleteItem = function (user) {
         for (var i = 0; i < this.favorites.length; i++) {
             if (user == this.favorites[i].login) {
                 for (var j in this.users) {
@@ -160,19 +126,14 @@ export class GithubComponent {
         if (this.favorites.length == 0) {
             this.delete = false;
         }
-    }
-
-    @ViewChild('myModal')
-    modal: ModalComponent;
-
-    close() {
+    };
+    GithubComponent.prototype.close = function () {
         this.modal.close();
-    }
-
-    open(user, favorite) {
+    };
+    GithubComponent.prototype.open = function (user, favorite) {
+        var _this = this;
         this._githubService.updateUsername(user);
-        this._githubService.getUser().subscribe(response => {
-
+        this._githubService.getUser().subscribe(function (response) {
             var user = {
                 id: response.id,
                 name: response.name,
@@ -185,17 +146,26 @@ export class GithubComponent {
                 email: response.email,
                 favorite: response.favorite
             };
-
-            this.user = user;
-
+            _this.user = user;
         });
-        this._githubService.getRepos().subscribe(response => {
-
-            this.repos = response;
-
+        this._githubService.getRepos().subscribe(function (response) {
+            _this.repos = response;
         });
-
-    }
-
-
-}
+    };
+    return GithubComponent;
+}());
+__decorate([
+    core_1.ViewChild('myModal'),
+    __metadata("design:type", typeof (_a = typeof ng2_bs3_modal_1.ModalComponent !== "undefined" && ng2_bs3_modal_1.ModalComponent) === "function" && _a || Object)
+], GithubComponent.prototype, "modal", void 0);
+GithubComponent = __decorate([
+    core_1.Component({
+        selector: 'github',
+        templateUrl: './app/components/github.component.html',
+        providers: [github_service_1.GithubService]
+    }),
+    __metadata("design:paramtypes", [github_service_1.GithubService])
+], GithubComponent);
+exports.GithubComponent = GithubComponent;
+var _a;
+//# sourceMappingURL=github.component.js.map
