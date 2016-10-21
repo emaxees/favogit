@@ -1,8 +1,5 @@
 @import url("../fonts/fonts.css");
-.loader {
-    left: 50%;
-    transform: translateX(-50%);
-}
+
 button.btn-ok {
   width: 114px;
   height: 34px;
