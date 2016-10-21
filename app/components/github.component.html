@@ -18,11 +18,12 @@
         <ul class="favorite-list optiscroll" id="favorite-scroll">
 
             <li *ngFor='let user of favorites'>
-                <img class="avatar" src="{{user.avatarUrl}}"><span>{{user.name}}</span><img class="star" src="./img/favorito2.png">
+                <img class="avatar" src="{{user.avatarUrl}}"><span>{{user.name}}</span><img src="./img/trash.png" (click)="deleteItem(user.login)" *ngIf="delete" class="star" alt="trash"><img class="star" *ngIf="!delete" src="./img/favorito2.png">
             </li>
 
         </ul>
     </div>
+    <button *ngIf="favorites.length>0" class="btn-red" type="button" name="button" (click)="deleteFavorites()">Delete Favorite</button>
 </div>
 
 <div id="home">
@@ -50,7 +51,7 @@
                         <button [ngClass]="{'staron': user.favorite, 'staroff':!user.favorite}" (click)="addFavorites(user.login)"></button>
                         <h1>{{user.login}}</h1>
                         <p>{{user.name}}</p>
-                        <p>{{user.date}}</p>
+                        <p>{{user.date | date}}</p>
                         <button class="btn-ok" type="button" name="button" (click)="modal.open();open(user.login)">View More</button>
                     </div>
                 </div>

@@ -19,12 +19,16 @@ export class GithubComponent {
     users: User[] = [];
     user: User;
     favorites: User[] = [];
+    delete: boolean;
 
 
     constructor(private _githubService: GithubService) {
         console.log('Github Component Init...');
         this.loading = false;
+        this.delete = false;
     }
+
+
 
     search() {
 
@@ -131,9 +135,30 @@ export class GithubComponent {
 
             });
         } else {
-            alert(user+" is already in your favorite list!");
+            alert(user + " is already in your favorite list!");
         }
 
+    }
+
+    deleteFavorites() {
+
+        this.delete = true;
+
+    }
+    deleteItem(user) {
+        for (var i = 0; i < this.favorites.length; i++) {
+            if (user == this.favorites[i].login) {
+                for (var j in this.users) {
+                    if (user == this.users[j].login) {
+                        this.users[j].favorite = false;
+                    }
+                }
+                this.favorites.splice(i, 1);
+            }
+        }
+        if (this.favorites.length == 0) {
+            this.delete = false;
+        }
     }
 
     @ViewChild('myModal')
