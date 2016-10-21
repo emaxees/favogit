@@ -18,7 +18,7 @@
         <ul class="favorite-list optiscroll" id="favorite-scroll">
 
             <li *ngFor='let user of favorites'>
-                <img class="avatar" src="{{user.avatarUrl}}"><span>{{user.name}}</span><img src="./img/trash.png" (click)="deleteItem(user.login)" *ngIf="delete" class="star" alt="trash"><img class="star" *ngIf="!delete" src="./img/favorito2.png">
+                <img class="avatar" src="{{user.avatarUrl}}"><span>{{user.login}}</span><img src="./img/trash.png" (click)="deleteItem(user.login)" *ngIf="delete" class="star" alt="trash"><img class="star" *ngIf="!delete" src="./img/favorito2.png">
             </li>
 
         </ul>
