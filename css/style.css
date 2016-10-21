@@ -1,4 +1,15 @@
 @import url("../fonts/fonts.css");
+button.btn-ok {
+  width: 114px;
+  height: 34px;
+  border: none;
+  background-color: #1bbc6b;
+  font-family: "latolight";
+  color: white;
+  border-radius: 8px; }
+
+button.btn-ok:hover {
+  background-color: #0f8449; }
 html {
   width: 100%;
   height: 100%; }
