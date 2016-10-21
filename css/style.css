@@ -48,6 +48,11 @@ body {
     max-height: 90%;
     overflow-y: scroll;
     overflow-x: hidden; }
+    #home .panel-right wrapper-cards{
+      float: left;
+    width: 100%;
+    max-width: 1200px;
+    }
     #home .panel-right .panel-user {
       width: 320px;
       height: 190px;
