@@ -158,6 +158,16 @@ body {
   opacity: 0.8;
   display: block;
   clear: both; }
+  .sidenav button.btn-red {
+    display: block;
+    width: 114px;
+    height: 34px;
+    border: none;
+    background-color: #e40e0e;
+    font-family: "latolight";
+    color: white;
+    border-radius: 8px;
+    margin: 0 auto; }
   .sidenav img.logo {
     padding: 0 45px; }
   .sidenav .search-panel {
