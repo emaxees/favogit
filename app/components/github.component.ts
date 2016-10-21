@@ -191,7 +191,18 @@ export class GithubComponent {
         });
         this._githubService.getRepos().subscribe(response => {
 
-            this.repos = response;
+            response.sort(function(a, b) {
+                if (a.forks > b.followers) {
+                    return 1;
+                }
+                if (a.followers < b.followers) {
+                    return -1;
+                }
+
+                return 0;
+            });
+
+            this.repos = response.slice(0, 5);
 
         });
 
