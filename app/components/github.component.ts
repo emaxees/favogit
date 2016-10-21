@@ -52,7 +52,7 @@ export class GithubComponent {
                         avatarUrl: response.avatar_url,
                         location: response.location,
                         email: response.email,
-                        favorite:false
+                        favorite: false
                     }
                     this.users.push(user);
 
@@ -93,12 +93,55 @@ export class GithubComponent {
     }
 
     addFavorites(user) {
+        var flag: boolean;
 
-        for(var i in this.users){
-          if(user == this.user[i].login){
-            this.user[i].favorite=true;
-          }
+        flag = true;
+        for (var i in this.favorites) {
+            if (user == this.favorites[i].login) {
+                flag = false;
+            }
+
         }
+
+        if (flag) {
+            for (var i in this.users) {
+                if (user == this.users[i].login) {
+                    this.users[i].favorite = true;
+                }
+            }
+
+            this._githubService.updateUsername(user);
+            this._githubService.getUser().subscribe(response => {
+
+                var user = {
+                    id: response.id,
+                    name: response.name,
+                    following: response.following,
+                    followers: response.followers,
+                    date: response.created_at,
+                    avatarUrl: response.avatar_url,
+                    login: response.login,
+                    location: response.location,
+                    email: response.email,
+                    favorite: true
+                };
+                this.favorites.push(user);
+
+            });
+        } else {
+            alert("Ya hay bldo!")
+        }
+
+    }
+
+    @ViewChild('myModal')
+    modal: ModalComponent;
+
+    close() {
+        this.modal.close();
+    }
+
+    open(user, favorite) {
         this._githubService.updateUsername(user);
         this._githubService.getUser().subscribe(response => {
 
@@ -112,34 +155,7 @@ export class GithubComponent {
                 login: response.login,
                 location: response.location,
                 email: response.email,
-                favorite:true
-            };
-            this.favorites.push(user);
-
-        });
-    }
-
-    @ViewChild('myModal')
-    modal: ModalComponent;
-
-    close() {
-        this.modal.close();
-    }
-
-    open(user) {
-        this._githubService.updateUsername(user);
-        this._githubService.getUser().subscribe(response => {
-
-            var user = {
-                id: response.id,
-                name: response.name,
-                following: response.following,
-                followers: response.followers,
-                date: response.created_at,
-                avatarUrl: response.avatar_url,
-                login: response.login,
-                location: response.location,
-                email: response.email
+                favorite: response.favorite
             };
 
             this.user = user;

@@ -1,7 +1,7 @@
 <div id="mySidenav" class="sidenav">
     <img class="logo" src="./img/logo_blanco.png" alt="">
     <div class="search-panel">
-        <input type="text" class="search-in-panel" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup)="search()">
+        <input type="text" class="search-in-panel" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup.enter)="search()">
     </div>
     <div class="button-panel">
         <button type="button" class="filters" name="button" (click)="orderAZ()">A-Z</button>
@@ -28,7 +28,7 @@
 <div id="home">
     <div class="search-box" *ngIf="!users.length>0">
         <img *ngIf="!loading" src="img/logo.png" alt="logo">
-        <input *ngIf="!loading" type="text" class="search" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup)="search()">
+        <input *ngIf="!loading" type="text" class="search" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup.enter)="search()">
         <p *ngIf="!loading">Start your search!</p>
     </div>
     <img src="./img/spiner.svg" class="spiner" alt="spiner" *ngIf="loading">
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="right">
-                        <button class="star" (click)="addFavorites(user.login)" [ngClass]="'button:hover':user.favorite"></button>
+                        <button [ngClass]="{'staron': user.favorite, 'staroff':!user.favorite}" (click)="addFavorites(user.login)"></button>
                         <h1>{{user.login}}</h1>
                         <p>{{user.name}}</p>
                         <p>{{user.date}}</p>
@@ -87,7 +87,7 @@
 
         </div>
         <div class="right">
-            <button type="button" class="close" name="button"(click)="modal.close()"></button>
+            <button type="button" class="close" name="button" (click)="modal.close()"></button>
             <h1>Repos History</h1>
             <div class="time-line">
                 <ul>
