@@ -18,7 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
     <script src="node_modules/ng2-bs3-modal/bundles/ng2-bs3-modal.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
     <script src="./shared/jquery.optiscroll.min.js"></script>
 
 
@@ -34,7 +34,11 @@
 <!-- 3. Display the application -->
 
 <body>
-    <my-app>Loading...</my-app>
+    <my-app>
+        <div class="loader">
+            <img src="./img/spiner.svg" class="spiner" alt="spiner" *ngIf="loading">
+        </div>
+    </my-app>
 </body>
 
 </html>
