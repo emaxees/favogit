@@ -4,9 +4,9 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class GithubService {
-    private username = 'emaxees';
-    private client_id = '394d3bef3dffbb963cc5';
-    private client_secret = 'c1704a0e59c22e0661cb021b8277783625b2c6dd';
+    private username = 'yourUsername';
+    private client_id = 'yourClientID';
+    private client_secret = 'yourClientSecret';
 
 
     constructor(private _http: Http) {
